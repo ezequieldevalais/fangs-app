@@ -1,8 +1,8 @@
-import axios from "axios";
 import { config } from "../config";
+import axiosClient from "./axiosClient";
 
-const authUrl = `${config.API_URL}/auth`;
-const userUrl = `${config.API_URL}/user`;
+const authUrl = `/auth`;
+const userUrl = `/user`;
 
 /*export const signIn = async (username: string, password: string) => {
     const response = await axios.post(`${baseUrl}/login`, {username, password});
@@ -14,29 +14,35 @@ export enum Role {
     ADMIN = 'ADMIN',
     PROFESSIONAL = 'PROFESIONAL',
     RECEPTIONIST = 'RECEPTIONIST',
-    }
-    
-    export class User {
-    
+}
+
+export class User {
     id: number;
     name: string;
     username: string;
     email: string;
     password: string;
     roles: Role[];
-    }
+}
     
 export async function signIn(username: string, password: string) : Promise<number> {
-    const response = await axios.post(`${authUrl}/login`, {username, password});
+    console.log(authUrl)
+
+    const response = await axiosClient.post(`${authUrl}/login`, {username, password});
+    if(response.request?.status === 200) {
+        console.log(response)
+        //console.log(response.headers.getAuthorization())
+        //const [cookie] = response.headers.get("set-cookie"); // get cookie from request
+        //axiosInstance.defaults.headers.Cookie = cookie; // attach cookie to axiosInstance for future requests
+    }
     return response.request?.status;
 };
 
 
 export async function getUserInfo() : Promise<User> {
-    const response = await axios.get(`${userUrl}/me`,{
+    const response = await axiosClient.get(`${userUrl}/me`,{
         withCredentials: true
         });
-    console.log(response);
     return response.request?.body;
 };
 

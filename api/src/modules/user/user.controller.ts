@@ -42,6 +42,11 @@ export class UserController {
    * so the API URL will be
    * GET http://localhost:3000/user
    */
+  @UseRoles({
+    resource: 'userAll',
+    action: 'read',
+    possession: 'any',
+  })
   @Get()
   findAll() {
     return this.userService.findAllUser();
@@ -53,8 +58,11 @@ export class UserController {
     possession: 'any',
   })
   @Get('/me')
-  findMe(@Session() session: SessionData) {
-    return this.userService.viewUser(session.user.id);
+  async findMe(@Session() session: SessionData) {
+    const { password: _, ...user } = await this.userService.viewUser(
+      session.user.id,
+    );
+    return user;
   }
 
   /**

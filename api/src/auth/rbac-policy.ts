@@ -8,6 +8,7 @@ RBAC_POLICY
   .grant(Role.RECEPTIONIST)
     .read('pet')
     .read('userMe')
+    .read('userAll')
   .grant(Role.PROFESSIONAL)
     .extend(Role.RECEPTIONIST)
     .read('pet')
