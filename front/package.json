@@ -1,8 +1,7 @@
 {
-  "name": "berry-free-material-react-cra",
+  "name": "fangs-front",
   "version": "3.4.2",
   "private": true,
-  "homepage": "https://berrydashboard.io/free",
   "dependencies": {
     "@aldabil/react-scheduler": "^2.8.8",
     "@emotion/cache": "^11.11.0",
