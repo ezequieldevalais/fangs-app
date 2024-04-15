@@ -16,7 +16,6 @@ export const Role = {
 };
 
 export async function signIn(username, password) {
-  console.log(authUrl);
   const response = await axiosClient.post(`${authUrl}/login`, { username, password });
   if (response.request?.status === 200) {
     console.log(response);
