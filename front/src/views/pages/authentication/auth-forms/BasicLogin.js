@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -39,6 +40,7 @@ const BasicLogin = ({ ...others }) => {
   const theme = useTheme();
   const scriptedRef = useScriptRef();
   const [checked, setChecked] = useState(true);
+  const navigate = useNavigate()
 
 
 
@@ -74,11 +76,10 @@ const BasicLogin = ({ ...others }) => {
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
             const status = await signIn(values.email, values.password);
-            console.log(status)
             if (status === 200) {
-              console.log('signedIn')
               setStatus({ success: true });
               setSubmitting(true);
+              navigate("/")
             }
           } catch (err) {
             console.error(err);

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 // material-ui
 import { styled, useTheme } from '@mui/material/styles';
@@ -16,6 +16,10 @@ import { SET_MENU } from 'store/actions';
 
 // assets
 import { IconChevronRight } from '@tabler/icons-react';
+
+// services
+import { getUserInfo } from 'services/auth';
+import { useEffect } from 'react';
 
 // styles
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' && prop !== 'theme' })(({ theme, open }) => ({
@@ -62,6 +66,21 @@ const MainLayout = () => {
   const handleLeftDrawerToggle = () => {
     dispatch({ type: SET_MENU, opened: !leftDrawerOpened });
   };
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    async function getData() {
+      try { 
+        const userinfo = await getUserInfo();
+        console.log(userinfo);
+      } catch (error) {
+        navigate("/pages/login/login3");
+      }
+    }
+    getData();
+  }, []);
+
+  
 
   return (
     <Box sx={{ display: 'flex' }}>
