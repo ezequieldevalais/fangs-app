@@ -71,8 +71,9 @@ const MainLayout = () => {
   useEffect(() => {
     async function getData() {
       try { 
-        const userinfo = await getUserInfo();
-        console.log(userinfo);
+        const userInfo = await getUserInfo();
+        sessionStorage.setItem('userinfo', JSON.stringify(userInfo));
+        
       } catch (error) {
         navigate("/pages/login/login3");
       }

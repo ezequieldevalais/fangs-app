@@ -42,15 +42,19 @@ function AppointmentsPage() {
                     (fe) => fe.id === event.admin_id
                   );
                   return (
-                    <Typography
+                    <div style={{border: 1, borderColor: "black"}}
                       key={i}
-                      style={{ display: "flex", alignItems: "center" }}
-                      color="textSecondary"
-                      variant="caption"
-                      noWrap
                     >
-                      <PersonRoundedIcon /> {admin.text}
-                    </Typography>
+                      <Typography
+                        key={i}
+                        style={{ display: "flex", alignItems: "center" }}
+                        color="textSecondary"
+                        variant="caption"
+                        noWrap
+                      >
+                        <PersonRoundedIcon /> {admin.text}
+                      </Typography>
+                    </div>
                   );
                 } else {
                   return "";

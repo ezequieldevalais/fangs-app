@@ -1,7 +1,7 @@
 export const EVENTS = [
   {
     event_id: 1,
-    title: 'Event 1',
+    title: 'Mario',
     start: new Date(new Date(new Date().setHours(9)).setMinutes(30)),
     end: new Date(new Date(new Date().setHours(10)).setMinutes(30)),
     admin_id: 1
@@ -18,7 +18,7 @@ export const EVENTS = [
     title: 'Event 3',
     start: new Date(new Date(new Date(new Date().setHours(9)).setMinutes(0)).setDate(new Date().getDate() - 1)),
     end: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
-    admin_id: 1
+    admin_id: 3
   },
   {
     event_id: 4,
@@ -29,10 +29,10 @@ export const EVENTS = [
   },
   {
     event_id: 5,
-    title: 'Event 5',
-    start: new Date(new Date(new Date(new Date().setHours(10)).setMinutes(0)).setDate(new Date().getDate() - 2)),
-    end: new Date(new Date(new Date(new Date().setHours(11)).setMinutes(0)).setDate(new Date().getDate() + 10)),
-    admin_id: 4
+    title: 'NO DISPONIBLE',
+    start: new Date(new Date(new Date(new Date().setHours(10)).setMinutes(0)).setDate(new Date().getDate() - 4)),
+    end: new Date(new Date(new Date(new Date().setHours(11)).setMinutes(0)).setDate(new Date().getDate() + -2)),
+    admin_id: 1
   },
   {
     event_id: 6,
@@ -57,7 +57,7 @@ export const EVENTS = [
   },
   {
     event_id: 9,
-    title: 'Event 11',
+    title: 'Maria',
     start: new Date(new Date(new Date(new Date().setHours(13)).setMinutes(0)).setDate(new Date().getDate() + 1)),
     end: new Date(new Date(new Date(new Date().setHours(15)).setMinutes(30)).setDate(new Date().getDate() + 1)),
     admin_id: 1
@@ -71,9 +71,23 @@ export const EVENTS = [
   },
   {
     event_id: 11,
-    title: 'Event 10',
+    title: 'Extraccion Carla',
     start: new Date(new Date(new Date(new Date().setHours(11)).setMinutes(0)).setDate(new Date().getDate() - 1)),
-    end: new Date(new Date(new Date(new Date().setHours(15)).setMinutes(0)).setDate(new Date().getDate() - 1)),
+    end: new Date(new Date(new Date(new Date().setHours(12)).setMinutes(30)).setDate(new Date().getDate() - 1)),
+    admin_id: 1
+  },
+  {
+    event_id: 12,
+    title: 'Turno pepe',
+    start: new Date(new Date(new Date(new Date().setHours(13)).setMinutes(0)).setDate(new Date().getDate() - 1)),
+    end: new Date(new Date(new Date(new Date().setHours(14)).setMinutes(0)).setDate(new Date().getDate() - 1)),
+    admin_id: 1
+  },
+  {
+    event_id: 13,
+    title: 'Sobreturno pepita',
+    start: new Date(new Date(new Date(new Date().setHours(13)).setMinutes(30)).setDate(new Date().getDate() - 1)),
+    end: new Date(new Date(new Date(new Date().setHours(14)).setMinutes(0)).setDate(new Date().getDate() - 1)),
     admin_id: 1
   }
 ];
@@ -81,30 +95,23 @@ export const EVENTS = [
 export const RESOURCES = [
   {
     admin_id: 1,
-    title: 'John',
+    title: 'Clara',
     mobile: '555666777',
     avatar: 'https://picsum.photos/200/300',
-    color: '#ab2d2d'
+    color: '#84a8e3'
   },
   {
     admin_id: 2,
-    title: 'Sarah',
+    title: 'Luisi',
     mobile: '545678354',
     avatar: 'https://picsum.photos/200/300',
-    color: '#58ab2d'
+    color: '#9fe384'
   },
   {
     admin_id: 3,
-    title: 'Joseph',
+    title: 'Coni',
     mobile: '543678433',
     avatar: 'https://picsum.photos/200/300',
-    color: '#a001a2'
-  },
-  {
-    admin_id: 4,
-    title: 'Mera',
-    mobile: '507487620',
-    avatar: 'https://picsum.photos/200/300',
-    color: '#08c5bd'
+    color: '#e38487'
   }
 ];

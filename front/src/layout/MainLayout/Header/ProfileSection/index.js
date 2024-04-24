@@ -49,6 +49,29 @@ const ProfileSection = () => {
     console.log('Logout');
   };
 
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const aUserInfo = sessionStorage.getItem('userinfo');
+      console.log(aUserInfo);
+      if(aUserInfo !== undefined && aUserInfo !== '') {
+        const jsonInfo = JSON.parse(aUserInfo);
+        console.log(jsonInfo);
+        setUserInfo(jsonInfo);
+      }
+
+    };
+    handleStorageChange();
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+
+
+
   const handleClose = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
@@ -147,9 +170,9 @@ const ProfileSection = () => {
                   <Box sx={{ p: 2 }}>
                     <Stack>
                       <Stack direction="row" spacing={0.5} alignItems="center">
-                        <Typography variant="h4">Good Morning,</Typography>
+                        <Typography variant="h4">Hi,</Typography>
                         <Typography component="span" variant="h4" sx={{ fontWeight: 400 }}>
-                          Johne Doe
+                          { userInfo.name }
                         </Typography>
                       </Stack>
                       <Typography variant="subtitle2">Project Admin</Typography>
